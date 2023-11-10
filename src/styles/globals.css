@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .background-main {
+    @apply bg-gradient-to-tl backdrop-blur-xl from-background-white-transparent via-background-container-middle to-background-white-transparent rounded-custom shadow-custom;
+  }
+}
+
+:root {
+  --foreground-rgb: 98, 98, 98;
+  --background-top: 238, 245, 248;
+  --background-bottom: 255, 255, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-bottom))
+    )
+    rgb(var(--background-top));
+}
