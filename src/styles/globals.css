@@ -6,6 +6,12 @@
   .background-main {
     @apply bg-gradient-to-tl backdrop-blur-xl from-background-white-transparent via-background-container-middle to-background-white-transparent rounded-custom shadow-custom;
   }
+  .button-main {
+    @apply bg-white rounded-custom shadow-custom w-10 h-10 flex justify-center items-center duration-300 hover:bg-gray-200;
+  }
+  .button-active {
+    @apply bg-[#00AEFE] text-white rounded-custom shadow-custom w-10 h-10 flex justify-center items-center duration-300 hover:bg-[#009ee8];
+  }
 }
 
 :root {
@@ -22,4 +28,20 @@ body {
       rgb(var(--background-bottom))
     )
     rgb(var(--background-top));
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: transparent;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(233, 233, 233);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(197, 197, 197);
+  border-radius: 8px;
 }
