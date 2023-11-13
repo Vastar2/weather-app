@@ -4,7 +4,7 @@ import { BsListStars } from "react-icons/bs";
 import { AiFillCloseSquare } from "react-icons/ai";
 import CitiesList from "./CitiesList";
 import { getCities } from "../api";
-import { FC, useState, useEffect } from "react";
+import { FC, useState, useEffect, useCallback } from "react";
 import { twMerge } from "tailwind-merge";
 import { TCitiesList } from "../types";
 
@@ -17,7 +17,7 @@ const DashboardHeader: FC<DashboardHeaderProps> = ({ onSetCurrentCity }) => {
   const [cities, setCities] = useState<null | TCitiesList[]>(null);
   const [isUserCitiesList, setIsUserCitiesList] = useState(false);
 
-  const getCitiesResult = async () => {
+  const getCitiesResult = useCallback(async () => {
     const data = await getCities(input);
     if (data.results) {
       const result = data.results.map((item: TCitiesList) => {
@@ -37,13 +37,17 @@ const DashboardHeader: FC<DashboardHeaderProps> = ({ onSetCurrentCity }) => {
         setCities(null);
       }
     }
-  };
+  }, [input, isUserCitiesList]);
 
   useEffect(() => {
     if (!localStorage.getItem("userCitiesList")) {
       localStorage.setItem("userCitiesList", "[]");
     }
   }, []);
+
+  useEffect(() => {
+    getCitiesResult();
+  }, [input, getCitiesResult]);
 
   const onChangeIsFavorite = (item: TCitiesList) => {
     let newList;
@@ -97,7 +101,6 @@ const DashboardHeader: FC<DashboardHeaderProps> = ({ onSetCurrentCity }) => {
                 placeholder="Your city"
                 onChange={(e) => {
                   setInput(e.target.value);
-                  getCitiesResult();
                 }}
                 onClick={() => {
                   if (isUserCitiesList) {
