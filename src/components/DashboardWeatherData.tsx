@@ -30,23 +30,23 @@ const DashboardWeatherData: FC<DashboardWeatherDataProps> = ({
                 />
               </div>
               <p>
-                Temperature: {currentWeatherData.currentWeather.temperature_2m}
-                {currentWeatherData.currentWeatherUnits.temperature_2m}
+                Temperature: {currentWeatherData.currentWeather?.temperature_2m}
+                {currentWeatherData.currentWeatherUnits?.temperature_2m}
               </p>
               <p>
                 Humidity:{" "}
-                {currentWeatherData.currentWeather.relative_humidity_2m}
-                {currentWeatherData.currentWeatherUnits.relative_humidity_2m}
+                {currentWeatherData.currentWeather?.relative_humidity_2m}
+                {currentWeatherData.currentWeatherUnits?.relative_humidity_2m}
               </p>
               <p>
-                Wind speed: {currentWeatherData.currentWeather.wind_speed_10m}
-                {currentWeatherData.currentWeatherUnits.wind_speed_10m}
+                Wind speed: {currentWeatherData.currentWeather?.wind_speed_10m}
+                {currentWeatherData.currentWeatherUnits?.wind_speed_10m}
               </p>
             </>
           )}
           {dailyWeatherData && (
             <>
-              <div className="flex gap-2 items-center mb-2  ">
+              <div className="flex gap-2 items-center mb-2">
                 <p className="text-xl font-bold">{currentCity.name}</p>
                 <div className="bg-white w-8 h-8 rounded-custom flex justify-center items-center">
                   <WeatherIcon
@@ -59,20 +59,20 @@ const DashboardWeatherData: FC<DashboardWeatherDataProps> = ({
               <p>
                 Max temperature:{" "}
                 {
-                  dailyWeatherData.daily.temperature_2m_max[
-                    dailyWeatherData.daily.time.indexOf(chosenDay)
+                  dailyWeatherData.daily?.temperature_2m_max[
+                    dailyWeatherData.daily?.time.indexOf(chosenDay)
                   ]
                 }
-                {dailyWeatherData.dailyUnits.temperature_2m_max}
+                {dailyWeatherData.dailyUnits?.temperature_2m_max}
               </p>
               <p>
                 Min temperature:{" "}
                 {
-                  dailyWeatherData.daily.temperature_2m_min[
-                    dailyWeatherData.daily.time.indexOf(chosenDay)
+                  dailyWeatherData.daily?.temperature_2m_min[
+                    dailyWeatherData.daily?.time.indexOf(chosenDay)
                   ]
                 }
-                {dailyWeatherData.dailyUnits.temperature_2m_min}
+                {dailyWeatherData.dailyUnits?.temperature_2m_min}
               </p>
             </>
           )}
