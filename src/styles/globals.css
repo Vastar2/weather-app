@@ -10,7 +10,7 @@
     @apply bg-white rounded-custom shadow-custom w-10 h-10 flex justify-center items-center duration-300 hover:bg-gray-200;
   }
   .button-active {
-    @apply bg-[#00AEFE] text-white rounded-custom shadow-custom w-10 h-10 flex justify-center items-center duration-300 hover:bg-[#009ee8];
+    @apply bg-color-accent text-white rounded-custom shadow-custom w-10 h-10 flex justify-center items-center duration-300 hover:bg-[#009ee8];
   }
 }
 

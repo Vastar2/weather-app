@@ -19,6 +19,7 @@ const config: Config = {
         "background-bottom": "rgb(255, 255, 255, 0.4)",
         "background-container-middle": "rgb(222, 243, 253, 0.6)",
         "background-white-transparent": "rgb(255, 255, 255, 0.6)",
+        "color-accent": "#00AEFE",
       },
       borderRadius: {
         custom: "8px",
