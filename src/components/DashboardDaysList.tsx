@@ -22,11 +22,12 @@ const DashboardDaysList: FC<DashboardDaysListProps> = ({
           return (
             <li
               key={item}
-              className={`flex-1 background-main ${twMerge(
+              className={twMerge(
+                "flex-1 background-main",
                 chosenDay !== day
                   ? "duration-300 opacity-50 hover:opacity-100"
                   : null
-              )}`}
+              )}
             >
               <button
                 className="py-2 w-full h-full"

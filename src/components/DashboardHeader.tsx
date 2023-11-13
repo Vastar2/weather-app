@@ -128,9 +128,10 @@ const DashboardHeader: FC<DashboardHeaderProps> = ({ onSetCurrentCity }) => {
             <button
               type="button"
               onClick={onToggleIsFavorite}
-              className={`button-main ${twMerge(
+              className={twMerge(
+                "button-main",
                 isUserCitiesList ? "button-active" : null
-              )}`}
+              )}
             >
               <BsListStars size="26" />
             </button>

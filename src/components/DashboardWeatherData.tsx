@@ -48,7 +48,7 @@ const DashboardWeatherData: FC<DashboardWeatherDataProps> = ({
             <>
               <div className="flex gap-2 items-center mb-2  ">
                 <p className="text-xl font-bold">{currentCity.name}</p>
-                <div className="bg-white w-8 h-8 rounded-custom mb-2 flex justify-center items-center">
+                <div className="bg-white w-8 h-8 rounded-custom flex justify-center items-center">
                   <WeatherIcon
                     currentWeatherData={currentWeatherData}
                     dailyWeatherData={dailyWeatherData}
