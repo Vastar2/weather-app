@@ -3,7 +3,7 @@ import Image from "next/image";
 import { BsListStars } from "react-icons/bs";
 import { AiFillCloseSquare } from "react-icons/ai";
 import CitiesList from "./CitiesList";
-import { getCities } from "../api";
+import { getCities } from "../../app/api";
 import { FC, useState, useEffect, useCallback } from "react";
 import { twMerge } from "tailwind-merge";
 import { TCitiesList } from "../types";
@@ -30,12 +30,8 @@ const DashboardHeader: FC<DashboardHeaderProps> = ({ onSetCurrentCity }) => {
       });
       setCities(result);
     } else {
-      if (!isUserCitiesList) {
-        setCities([]);
-      }
-      if (input === "" && !isUserCitiesList) {
-        setCities(null);
-      }
+      !isUserCitiesList && setCities([]);
+      input === "" && !isUserCitiesList && setCities(null);
     }
   }, [input, isUserCitiesList]);
 
@@ -54,20 +50,13 @@ const DashboardHeader: FC<DashboardHeaderProps> = ({ onSetCurrentCity }) => {
     const storedCities = localStorage.getItem("userCitiesList");
     const oldList = storedCities ? JSON.parse(storedCities) : null;
 
-    if (oldList.some((value: TCitiesList) => value.id === item.id)) {
-      newList = [
-        ...oldList.filter((value: TCitiesList) => value.id !== item.id),
-      ];
-    } else {
-      newList = [item, ...oldList];
-    }
+    newList = oldList.some((value: TCitiesList) => value.id === item.id)
+      ? [...oldList.filter((value: TCitiesList) => value.id !== item.id)]
+      : (newList = [item, ...oldList]);
+
     localStorage.setItem("userCitiesList", JSON.stringify(newList));
 
-    if (isUserCitiesList) {
-      setCities(newList);
-    } else {
-      getCitiesResult();
-    }
+    isUserCitiesList ? setCities(newList) : getCitiesResult();
   };
 
   const onToggleIsFavorite = () => {

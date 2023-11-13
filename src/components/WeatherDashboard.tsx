@@ -3,7 +3,7 @@ import DashboardHeader from "./DashboardHeader";
 import DashboardDaysList from "./DashboardDaysList";
 import DashboardWeatherData from "./DashboardWeatherData";
 import { useEffect, useState } from "react";
-import { getWeatherFromSearch } from "../api";
+import { getWeatherFromSearch } from "../../app/api";
 import { TCitiesList } from "../types";
 
 const WeatherDashboard = () => {
